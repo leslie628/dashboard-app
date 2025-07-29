@@ -14,4 +14,11 @@ const lifecycles = singleSpaReact({
   },
 });
 
-export const { bootstrap, mount, unmount } = lifecycles;
+async function mountWithError(props) {
+ throw new Error("Dashboard failed to mount");
+}
+
+export const bootstrap = lifecycles.bootstrap;
+export const mount = mountWithError;
+export const unmount = lifecycles.unmount;
+
